@@ -127,12 +127,12 @@ listDone.addEventListener('click', function (e) {
   }
 });
 
-todoInput.addEventListener('focus', () => {
-  todoBtn.style.fontSize = '2.5rem';
-  todoBtn.parentElement.parentElement.style.padding = '0.42rem';
-});
+// todoInput.addEventListener('focus', () => {
+//   todoBtn.style.fontSize = '2.5rem';
+//   todoBtn.parentElement.parentElement.style.padding = '0.42rem';
+// });
 
-todoInput.addEventListener('blur', () => {
-  todoBtn.style.fontSize = '2.35rem';
-  todoBtn.parentElement.parentElement.style.padding = '0.5rem';
-});
+// todoInput.addEventListener('blur', () => {
+//   todoBtn.style.fontSize = '2.35rem';
+//   todoBtn.parentElement.parentElement.style.padding = '0.5rem';
+// });
