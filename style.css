@@ -83,6 +83,9 @@ ul {
   border: none;
   cursor: pointer;
   border-radius: 0px 5px 5px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .todo-display-container {
