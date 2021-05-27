@@ -1,0 +1,160 @@
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container-h1 {
+  width: 100%;
+  text-align: center;
+  background-color: #14b999;
+  color: #fff;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.todo-add-container {
+  display: flex;
+  padding: 0.5rem;
+  justify-content: space-around;
+  width: 100%;
+  background-color: #14b999;
+}
+
+.todo-add-container-1 {
+  flex: 2;
+}
+
+::placeholder {
+  color: #fff;
+  opacity: 1;
+}
+
+#todo-add-container-input {
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+  border-left: 1px solid #fff;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #fff;
+  border-right: none;
+  background-color: #42c7ad;
+  color: #fff;
+  padding: 0.8rem 0rem 0.8rem 0.8rem;
+  border-radius: 5px 0px 0px 5px;
+  font-size: 1rem;
+}
+
+#todo-add-container-input:focus {
+  outline: none;
+  border-left: 2px solid #fff;
+  border-top: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  border-right: none;
+}
+
+#todo-add-container-btn {
+  text-decoration: none;
+  color: #14b999;
+  font-size: 2.35rem;
+  width: 40px;
+  text-align: center;
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 0px 5px 5px 0px;
+}
+
+.todo-display-container {
+  width: 100%;
+}
+
+.todo-display-list-li {
+  margin: 1rem;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  font-weight: bold;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.todo-display-list {
+  max-height: 14.5rem;
+  overflow-y: auto;
+}
+
+.todo-display-list-span {
+  flex: 2;
+}
+
+a {
+  font-size: 1.2rem;
+  color: #8f9997;
+}
+
+.check-todo {
+  color: #14b999;
+}
+
+.delete-todo:hover {
+  color: #db5555;
+}
+
+.v2 {
+  border-left: 2px solid #8f99974f;
+  height: 26px;
+  width: 1px;
+  margin: 0 0.8rem;
+}
+
+hr {
+  width: 50%;
+  height: 1px;
+  opacity: 0.5;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #42c7ad;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* 480pxx or less */
+@media (max-width: 480px) {
+  .todo-display-list {
+    max-height: 19.2rem;
+  }
+}

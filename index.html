@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Todo App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="container-h1">
+        <h1>Divyam's Todo List</h1>
+      </div>
+      <div class="todo-add-container">
+        <div class="todo-add-container-1">
+          <input
+            type="text"
+            placeholder="Enter an activity.."
+            id="todo-add-container-input"
+          />
+        </div>
+        <div class="todo-add-container-2">
+          <button id="todo-add-container-btn">+</button>
+        </div>
+      </div>
+      <div class="todo-display-container">
+        <ul id="todo-display-list-regular" class="todo-display-list">
+          <!-- <li class="todo-display-list-li">
+            <span class="todo-display-list-span">Grocery Shopping</span>
+            <a class="delete-todo" href="#"><i class="far fa-trash-alt"></i></a>
+            <div class="v2"></div>
+            <a class="check-todo" href="#"
+              ><i class="far fa-check-circle"></i
+            ></a>
+          </li> -->
+        </ul>
+        <hr />
+        <ul id="todo-display-list-done" class="todo-display-list">
+          <!-- <li class="todo-display-list-li">
+            <span class="todo-display-list-span">Clean The Car</span>
+            <a class="delete-todo" href="#"><i class="far fa-trash-alt"></i></a>
+            <div class="v2"></div>
+            <a class="check-todo" href="#"
+              ><i class="fas fa-check-circle"></i
+            ></a>
+          </li> -->
+        </ul>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
