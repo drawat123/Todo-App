@@ -4,11 +4,16 @@ const todoBtn = document.querySelector('#todo-add-container-btn');
 const todoInput = document.querySelector('#todo-add-container-input');
 
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', function () {
-    navigator.serviceWorker
-      .register('/Todo-App/pwabuilder-sw.js')
-      .then((res) => console.log('Service worker registered'))
-      .catch((err) => console.log('Service worker not registered', err));
+  window.addEventListener('load', async () => {
+    // Try to register the service worker.
+    try {
+      const reg = await navigator.serviceWorker.register(
+        '/Todo-App/pwabuilder-sw.js'
+      );
+      console.log('Service worker registered! 😎', reg);
+    } catch (err) {
+      console.log('😥 Service worker registration failed: ', err);
+    }
   });
 }
 
