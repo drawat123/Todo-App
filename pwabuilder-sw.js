@@ -18,7 +18,6 @@ importScripts(
 
 const CACHE = 'pwabuilder-page';
 const assets = [
-  '/',
   '/Todo-App',
   '/Todo-App/index.html',
   '/Todo-App/script.js',
