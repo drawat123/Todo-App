@@ -1,5 +1,5 @@
 // Choose a cache name
-const cacheName = 'pwabuilder-page';
+const CACHE = 'pwabuilder-page';
 // List the files to precache
 const precacheResources = [
   '/Todo-App',
@@ -12,7 +12,7 @@ const precacheResources = [
 self.addEventListener('install', (event) => {
   console.log('Service worker install event!');
   event.waitUntil(
-    caches.open(cacheName).then((cache) => cache.addAll(precacheResources))
+    caches.open(CACHE).then((cache) => cache.addAll(precacheResources))
   );
 });
 
@@ -20,15 +20,17 @@ self.addEventListener('activate', (event) => {
   console.log('Service worker activate event!');
 });
 
-// When there's an incoming fetch request, try and respond with a precached resource, otherwise fall back to the network
-self.addEventListener('fetch', (event) => {
-  console.log('Fetch intercepted for:', event.request.url);
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(event.request);
-    })
+self.addEventListener('fetch', (e) => {
+  e.respondWith(
+    (async () => {
+      const cache = await caches.open(CACHE);
+      const r = await cache.match(e.request);
+      console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
+      if (r) return r;
+      const response = await fetch(e.request);
+      console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
+      cache.put(e.request, response.clone());
+      return response;
+    })()
   );
 });
