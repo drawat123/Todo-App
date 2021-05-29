@@ -6,7 +6,7 @@ const todoInput = document.querySelector('#todo-add-container-input');
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
     navigator.serviceWorker
-      .register('/Todo-App/pwabuilder-sw.js')
+      .register('/pwabuilder-sw.js')
       .then((res) => console.log('Service worker registered'))
       .catch((err) => console.log('Service worker not registered', err));
   });
