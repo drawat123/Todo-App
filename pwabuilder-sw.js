@@ -18,7 +18,11 @@ const assets = [
 
 const CACHE = 'pwabuilder-page';
 
-const offlineFallbackPage = ['index.html', 'script.js', 'style.css'];
+const offlineFallbackPage = [
+  'index.html',
+  '/Todo-App/script.js',
+  '/Todo-App/style.css',
+];
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
