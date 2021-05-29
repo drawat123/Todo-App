@@ -7,7 +7,19 @@ importScripts(
 const CACHE = 'pwabuilder-page';
 
 // TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = 'index.html';
+// const offlineFallbackPage = 'index.html';
+const offlineFallbackPage = [
+  '/',
+  '/index.html',
+  '/style.css',
+  '/script.js',
+  '/logo.png',
+  'icons/android/android-launchericon-72-72.png',
+  'icons/android/android-launchericon-96-96.png',
+  'icons/android/android-launchericon-144-144.png',
+  'icons/android/android-launchericon-192-192.png',
+  'icons/android/android-launchericon-512-512.png',
+];
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
@@ -17,7 +29,7 @@ self.addEventListener('message', (event) => {
 
 self.addEventListener('install', async (event) => {
   event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.add(offlineFallbackPage))
+    caches.open(CACHE).then((cache) => cache.addAll(offlineFallbackPage))
   );
 });
 
