@@ -64,17 +64,29 @@ if (workbox.navigationPreload.isSupported()) {
 // });
 
 // Fetching content using Service Worker
-self.addEventListener('fetch', (e) => {
-  e.respondWith(
-    (async () => {
-      const r = await caches.match(e.request);
-      console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
-      if (r) return r;
-      const response = await fetch(e.request);
-      const cache = await caches.open(CACHE);
-      console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
-      cache.put(e.request, response.clone());
-      return response;
-    })()
+// self.addEventListener('fetch', (e) => {
+//   e.respondWith(
+//     (async () => {
+//       const r = await caches.match(e.request);
+//       console.log(`[Service Worker] Fetching resource: ${e.request.url}`);
+//       if (r) return r;
+//       const response = await fetch(e.request);
+//       const cache = await caches.open(CACHE);
+//       console.log(`[Service Worker] Caching new resource: ${e.request.url}`);
+//       cache.put(e.request, response.clone());
+//       return response;
+//     })()
+//   );
+// });
+
+self.addEventListener('fetch', (event) => {
+  console.log('Fetch intercepted for:', event.request.url);
+  event.respondWith(
+    caches.match(event.request).then((cachedResponse) => {
+      if (cachedResponse) {
+        return cachedResponse;
+      }
+      return fetch(event.request);
+    })
   );
 });
