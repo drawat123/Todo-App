@@ -3,7 +3,7 @@
   "short_name": "Todo App",
   "scope": "/Todo-App/",
   "display": "fullscreen",
-  "start_url": "https://drawat123.github.io/Todo-App/",
+  "start_url": "index.html",
   "url": "https://drawat123.github.io/Todo-App/",
   "icons": [
     {
