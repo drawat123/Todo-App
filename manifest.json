@@ -1,8 +1,8 @@
 {
   "name": "Todo App",
   "short_name": "Todo App",
-  "scope": "/Todo-App/",
   "display": "fullscreen",
+  "scope": "/Todo-App/",
   "start_url": "https://drawat123.github.io/Todo-App/",
   "url": "https://drawat123.github.io/Todo-App/",
   "icons": [

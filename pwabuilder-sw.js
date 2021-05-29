@@ -2,27 +2,29 @@ importScripts(
   'https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js'
 );
 
+// const assets = [
+//   '/',
+//   '/Todo-App',
+//   '/Todo-App/index.html',
+//   '/Todo-App/style.css',
+//   '/Todo-App/script.js',
+//   '/Todo-App/logo.png',
+//   '/Todo-App/icons/android/android-launchericon-72-72.png',
+//   '/Todo-App/icons/android/android-launchericon-96-96.png',
+//   '/Todo-App/icons/android/android-launchericon-144-144.png',
+//   '/Todo-App/icons/android/android-launchericon-192-192.png',
+//   '/Todo-App/icons/android/android-launchericon-512-512.png',
+// ];
+
+const CACHE = 'pwabuilder-page';
 const assets = [
   '/',
   '/Todo-App',
   '/Todo-App/index.html',
-  '/Todo-App/style.css',
-  '/Todo-App/script.js',
-  '/Todo-App/logo.png',
-  '/Todo-App/icons/android/android-launchericon-72-72.png',
-  '/Todo-App/icons/android/android-launchericon-96-96.png',
-  '/Todo-App/icons/android/android-launchericon-144-144.png',
-  '/Todo-App/icons/android/android-launchericon-192-192.png',
-  '/Todo-App/icons/android/android-launchericon-512-512.png',
-];
-
-const CACHE = 'pwabuilder-page';
-
-const offlineFallbackPage = [
-  'index.html',
   '/Todo-App/script.js',
   '/Todo-App/style.css',
 ];
+const offlineFallbackPage = '/Todo-App/index.html';
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
@@ -31,9 +33,7 @@ self.addEventListener('message', (event) => {
 });
 
 self.addEventListener('install', async (event) => {
-  event.waitUntil(
-    caches.open(CACHE).then((cache) => cache.addAll(offlineFallbackPage))
-  );
+  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(assets)));
 });
 
 if (workbox.navigationPreload.isSupported()) {
@@ -55,8 +55,7 @@ self.addEventListener('fetch', (event) => {
           return networkResp;
         } catch (error) {
           const cache = await caches.open(CACHE);
-          const cachedResp = await cache.matchAll(offlineFallbackPage);
-          console.log(cachedResp);
+          const cachedResp = await cache.matchAll();
           return cachedResp;
         }
       })()
