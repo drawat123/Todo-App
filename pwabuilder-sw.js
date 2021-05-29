@@ -1,6 +1,6 @@
-importScripts(
-  'https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js'
-);
+// importScripts(
+//   'https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js'
+// );
 
 // const assets = [
 //   '/',
@@ -35,9 +35,9 @@ self.addEventListener('install', async (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(assets)));
 });
 
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
-}
+// if (workbox.navigationPreload.isSupported()) {
+//   workbox.navigationPreload.enable();
+// }
 
 // self.addEventListener('fetch', (event) => {
 //   if (event.request.mode === 'navigate') {
