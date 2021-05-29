@@ -137,6 +137,12 @@ hr {
   opacity: 0.5;
 }
 
+.hide {
+  visibility: hidden;
+  height: 0;
+  width: 0;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 7px;
