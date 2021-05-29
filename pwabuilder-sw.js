@@ -56,7 +56,7 @@ self.addEventListener('fetch', (event) => {
         } catch (error) {
           const cache = await caches.open(CACHE);
           const cachedResp = await cache.matchAll(offlineFallbackPage);
-          console.log(cache);
+          console.log(cachedResp);
           return cachedResp;
         }
       })()
