@@ -1,8 +1,6 @@
 const CACHE = 'pwabuilder-page';
 
 const assets = [
-  'https://fonts.googleapis.com/css?family=Lato&display=swap',
-  'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css',
   '/',
   '/Todo-App',
   '/Todo-App/index.html',
