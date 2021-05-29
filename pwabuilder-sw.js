@@ -16,16 +16,29 @@ const assets = [
 
 self.addEventListener('install', (installEvent) => {
   installEvent.waitUntil(
-    caches.open(CACHE).then((cache) => {
-      cache.addAll(assets);
-    })
+    caches
+      .open(CACHE)
+      .then((cache) => {
+        return cache.addAll(assets);
+      })
+      .catch((err) => console.log(err))
   );
 });
 
-self.addEventListener('fetch', (fetchEvent) => {
-  fetchEvent.respondWith(
-    caches.match(fetchEvent.request).then((res) => {
-      return res || fetch(fetchEvent.request);
-    })
-  );
+self.addEventListener('fetch', (event) => {
+  if (event.request.url === 'https://drawat123.github.io/Todo-App/') {
+    event.respondWith(
+      fetch(event.request).catch((err) =>
+        self.cache
+          .open(cache_name)
+          .then((cache) => cache.match('/Todo-App/index.html'))
+      )
+    );
+  } else {
+    event.respondWith(
+      fetch(event.request).catch((err) =>
+        caches.match(event.request).then((response) => response)
+      )
+    );
+  }
 });
