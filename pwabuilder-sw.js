@@ -55,6 +55,7 @@ self.addEventListener('fetch', (event) => {
         } catch (error) {
           const cache = await caches.open(CACHE);
           const cachedResp = await cache.matchAll();
+          console.log('response', cachedResp);
           return cachedResp;
         }
       })()
