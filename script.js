@@ -3,6 +3,15 @@ const listDone = document.querySelector('#todo-display-list-done');
 const todoBtn = document.querySelector('#todo-add-container-btn');
 const todoInput = document.querySelector('#todo-add-container-input');
 
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker
+      .register('/pwabuilder-sw.js')
+      .then((res) => console.log('service worker registered'))
+      .catch((err) => console.log('service worker not registered', err));
+  });
+}
+
 let listRegularItems = JSON.parse(localStorage.getItem('listRegularItems'));
 if (!listRegularItems) {
   listRegularItems = [];
